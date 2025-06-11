@@ -1,3 +1,5 @@
+// No need for PUBLIC_URL, so there is no usage.
+// If there had been any line using PUBLIC_URL (e.g.: process.env.PUBLIC_URL or just PUBLIC_URL), it needs to be removed/fixed.
 import React from "react";
 import "./SyncStreamMainContainer.css";
 

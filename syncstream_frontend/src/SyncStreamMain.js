@@ -259,7 +259,7 @@ function SyncStreamMain() {
                   maxLength={12}
                   id="syncstream-room-id-input"
                   name="syncstream-room-id"
-                  autoComplete="off"
+                  autoComplete="username" // Help browsers suggest recently used room codes/usernames
                   aria-label="Room ID"
                   data-testid="room-id-input"
                 />
@@ -270,6 +270,8 @@ function SyncStreamMain() {
                   id="syncstream-join-room-btn"
                   name="syncstream-join-room-btn"
                   data-testid="join-room-button"
+                  type="button" // Explicit for accessibility
+                  aria-label="Join Room"
                 >Join Room</button>
                 <span style={{ color: '#aaa'}}>or</span>
                 <button
@@ -278,6 +280,8 @@ function SyncStreamMain() {
                   id="syncstream-create-room-btn"
                   name="syncstream-create-room-btn"
                   data-testid="create-room-button"
+                  type="button"
+                  aria-label="Create Room"
                 >Create Room</button>
               </>
             ) : (
@@ -333,6 +337,8 @@ function SyncStreamMain() {
                 id="syncstream-set-video-btn"
                 name="syncstream-set-video-btn"
                 data-testid="set-video-button"
+                type="button"
+                aria-label="Set Video"
               >Set Video</button>
             </div>
           )}

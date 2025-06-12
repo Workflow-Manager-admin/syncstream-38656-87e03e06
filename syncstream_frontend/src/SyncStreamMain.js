@@ -259,7 +259,7 @@ function SyncStreamMain() {
                   maxLength={12}
                   id="syncstream-room-id-input"
                   name="syncstream-room-id"
-                  autoComplete="username" // Help browsers suggest recently used room codes/usernames
+                  autoComplete="username"
                   aria-label="Room ID"
                   data-testid="room-id-input"
                 />
@@ -270,7 +270,7 @@ function SyncStreamMain() {
                   id="syncstream-join-room-btn"
                   name="syncstream-join-room-btn"
                   data-testid="join-room-button"
-                  type="button" // Explicit for accessibility
+                  type="button"
                   aria-label="Join Room"
                 >Join Room</button>
                 <span style={{ color: '#aaa'}}>or</span>

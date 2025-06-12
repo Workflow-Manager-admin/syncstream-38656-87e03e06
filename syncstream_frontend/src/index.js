@@ -10,5 +10,7 @@ root.render(
   </React.StrictMode>
 );
 /*
-// Note: No usage of PUBLIC_URL here, this entry looks correct.
-*/
+ * If any usage of PUBLIC_URL is needed in the code, use process.env.PUBLIC_URL in JS,
+ * and use %PUBLIC_URL% in public/index.html or static HTML files with Create React App.
+ * This file itself contains no direct PUBLIC_URL usage.
+ */

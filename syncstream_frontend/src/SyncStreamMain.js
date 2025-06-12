@@ -257,6 +257,10 @@ function SyncStreamMain() {
                   value={roomId}
                   onChange={e => setRoomId(e.target.value.replace(/\s/g,''))}
                   maxLength={12}
+                  id="room-id"
+                  name="roomId"
+                  autoComplete="off"
+                  aria-label="Room ID"
                 />
                 <button
                   style={buttonStyle(palette.primary, true)}
@@ -309,6 +313,10 @@ function SyncStreamMain() {
                 value={inputUrl}
                 onChange={e => setInputUrl(e.target.value)}
                 maxLength={1000}
+                id="video-url"
+                name="videoUrl"
+                autoComplete="url"
+                aria-label="Video URL"
               />
               <button
                 style={buttonStyle(palette.accent, false, 'small')}

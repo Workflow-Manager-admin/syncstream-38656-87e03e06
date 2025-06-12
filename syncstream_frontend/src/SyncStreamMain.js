@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { supabase } from './supabaseClient'; // Supabase client
 
 // PUBLIC_INTERFACE
 /**
@@ -10,7 +11,6 @@ function SyncStreamMain() {
   // Room state
   const [roomId, setRoomId] = useState('');
   const [hasJoined, setHasJoined] = useState(false); // true after Create/Join
-  // Invite link (in a real app, would be generated per backend)
   const [inviteLink, setInviteLink] = useState('');
   // Chat state
   const [messages, setMessages] = useState([]);
@@ -21,37 +21,119 @@ function SyncStreamMain() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [playbackTime, setPlaybackTime] = useState(0);
   const [videoError, setVideoError] = useState('');
+  const [loadingRoom, setLoadingRoom] = useState(false);
 
   const videoRef = useRef(null);
+  const channelRef = useRef(null);
+
+  // --- Supabase Room Table Config ---
+  // Table name: 'rooms'
+  // Columns: id (UUID or text), video_url (text)
 
   // --- Room Management ---
   // PUBLIC_INTERFACE
-  function handleRoomCreate() {
+  async function handleRoomCreate() {
     // "Generate" room id (for mock/demo)
     const id = Math.random().toString(36).substr(2, 7).toUpperCase();
     setRoomId(id);
     setHasJoined(true);
     setInviteLink(window.location.origin + '/?room=' + id);
+
+    // Insert new room into Supabase if it doesn't exist
+    setLoadingRoom(true);
+    try {
+      const { error } = await supabase.from('rooms').upsert({ id, video_url: '' }, { onConflict: ['id'] });
+      if (error) {
+        setVideoError('Error creating room in Supabase');
+      }
+    } catch (e) {
+      setVideoError('Could not create room in backend');
+    }
+    setLoadingRoom(false);
+
+    // Subscribe to this room's updates
+    subscribeToRoom(id);
   }
 
   // PUBLIC_INTERFACE
-  function handleRoomJoin() {
+  async function handleRoomJoin() {
     if (roomId.trim()) {
-      setHasJoined(true);
-      setInviteLink(window.location.origin + '/?room=' + roomId);
+      setLoadingRoom(true);
+
+      // Fetch room state from Supabase if exists
+      const { data, error } = await supabase.from('rooms').select('video_url').eq('id', roomId.trim()).single();
+
+      if (!error && data) {
+        setVideoUrl(data.video_url || '');
+        setInputUrl(data.video_url || '');
+        setHasJoined(true);
+        setInviteLink(window.location.origin + '/?room=' + roomId.trim());
+        subscribeToRoom(roomId.trim());
+      } else {
+        setVideoError('Room does not exist. Please check the Room ID.');
+      }
+      setLoadingRoom(false);
     }
   }
 
-  // --- Video Controls (Mock Synchronized) ---
-  function handleUrlSet() {
-    setVideoError('');
-    setVideoUrl(inputUrl.trim());
-    setPlaybackTime(0);
-    setIsPlaying(false);
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0;
-      videoRef.current.pause();
+  // SUBSCRIBE to the room's video sync
+  function subscribeToRoom(roomIdToSubscribe) {
+    // Clean up previous subscription
+    if (channelRef.current) {
+      channelRef.current.unsubscribe();
+      channelRef.current = null;
     }
+    // PUBLIC_INTERFACE
+    /**
+     * Subscribes to Supabase realtime updates for a room's video_url.
+     */
+    const channel = supabase
+      .channel('room_' + roomIdToSubscribe)
+      .on(
+        'postgres_changes',
+        { event: 'UPDATE', schema: 'public', table: 'rooms', filter: `id=eq.${roomIdToSubscribe}` },
+        (payload) => {
+          if (payload.new && payload.new.video_url !== undefined) {
+            setVideoUrl(payload.new.video_url);
+            setInputUrl(payload.new.video_url);
+            setPlaybackTime(0);
+            setIsPlaying(false);
+            setVideoError('');
+            if (videoRef.current) {
+              videoRef.current.currentTime = 0;
+              videoRef.current.pause();
+            }
+          }
+        }
+      )
+      .subscribe();
+    channelRef.current = channel;
+  }
+
+  // --- Video Controls (Synced) ---
+  async function handleUrlSet() {
+    setVideoError('');
+    // Only update local state if not in a room, otherwise use Supabase
+    if (!roomId) {
+      setVideoUrl(inputUrl.trim());
+      setPlaybackTime(0);
+      setIsPlaying(false);
+      if (videoRef.current) {
+        videoRef.current.currentTime = 0;
+        videoRef.current.pause();
+      }
+      return;
+    }
+    // Write to Supabase => all clients in room will update
+    setLoadingRoom(true);
+    const { error } = await supabase.from('rooms').update({ video_url: inputUrl.trim() }).eq('id', roomId);
+    if (error) {
+      setVideoError('Failed to set video. Supabase error.');
+      setLoadingRoom(false);
+      return;
+    }
+    setLoadingRoom(false);
+    // Don't setVideoUrl directly here; rely on realtime subscription to update
   }
 
   function handlePlayPause() {

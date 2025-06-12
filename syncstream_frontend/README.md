@@ -27,6 +27,23 @@ Removing it will break editor integration and visual editing features.
 
 ## Getting Started
 
+### Supabase Integration
+
+This app uses [Supabase](https://supabase.com/) for real-time data synchronization.  
+You must create a Supabase project and a table named `rooms` with:
+
+| Column    | Type | Description         |
+|-----------|------|---------------------|
+| id        | text | Unique Room ID      |
+| video_url | text | Current Video URL   |
+
+Add a `.env` with:
+```
+REACT_APP_SUPABASE_URL=https://<project>.supabase.co
+REACT_APP_SUPABASE_ANON_KEY=<your-anon-key>
+```
+Or edit directly in `src/supabaseClient.js`.
+
 In the project directory, you can run:
 
 ### `npm start`

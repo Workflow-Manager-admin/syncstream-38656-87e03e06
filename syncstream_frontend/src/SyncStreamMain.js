@@ -262,6 +262,7 @@ function SyncStreamMain() {
                   autoComplete="username"
                   aria-label="Room ID"
                   data-testid="room-id-input"
+                  required
                 />
                 <button
                   style={buttonStyle(palette.primary, true)}
@@ -563,8 +564,8 @@ function GroupChatPanel({ messages, chatInput, setChatInput, handleChatSend }) {
             padding: '7px 10px',
             outline: 'none'
           }}
-          name="chat-input"
-          id="chat-input"
+          name="group-chat-input"
+          id="group-chat-input"
           autoComplete="off"
           type="text"
           value={chatInput}
@@ -572,6 +573,7 @@ function GroupChatPanel({ messages, chatInput, setChatInput, handleChatSend }) {
           onChange={e => setChatInput(e.target.value)}
           maxLength={220}
           data-testid="chat-input"
+          required
         />
         <button
           type="submit"

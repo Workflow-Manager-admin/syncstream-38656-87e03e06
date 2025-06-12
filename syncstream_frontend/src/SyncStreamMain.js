@@ -39,10 +39,12 @@ function SyncStreamMain() {
     setHasJoined(true);
     setInviteLink(window.location.origin + '/?room=' + id);
 
-    // Insert new room into Supabase if it doesn't exist
+    // Insert new room into Supabase (omit onConflict unless truly upserting)
     setLoadingRoom(true);
     try {
-      const { error } = await supabase.from('rooms').upsert({ id, video_url: '' }, { onConflict: ['id'] });
+      // Only send keys matching rooms table: id and video_url.
+      // Remove onConflict since we're not performing an upsert-with-update here.
+      const { error } = await supabase.from('rooms').insert({ id, video_url: '' });
       if (error) {
         setVideoError('Error creating room in Supabase');
       }

@@ -38,10 +38,11 @@ module.exports = (env = {}) => ({
     extensions: ['.js', '.jsx'],
   },
   devServer: {
-    static: './public',
-    hot: true,
-    port: 3000,
-  },
+  static: './public',
+  hot: true,
+  port: 3000,
+  allowedHosts: 'all', // Replaces the old disableHostCheck: true in Webpack 5
+},
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',

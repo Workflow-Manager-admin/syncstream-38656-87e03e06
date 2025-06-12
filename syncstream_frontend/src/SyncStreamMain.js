@@ -20,6 +20,7 @@ function SyncStreamMain() {
   const [inputUrl, setInputUrl] = useState('');
   const [isPlaying, setIsPlaying] = useState(false);
   const [playbackTime, setPlaybackTime] = useState(0);
+  const [videoError, setVideoError] = useState('');
 
   const videoRef = useRef(null);
 
@@ -43,6 +44,7 @@ function SyncStreamMain() {
 
   // --- Video Controls (Mock Synchronized) ---
   function handleUrlSet() {
+    setVideoError('');
     setVideoUrl(inputUrl.trim());
     setPlaybackTime(0);
     setIsPlaying(false);
@@ -245,22 +247,46 @@ function SyncStreamMain() {
             alignItems: 'center',
             justifyContent: 'center',
             position: 'relative',
-            marginBottom: 14
+            marginBottom: 14,
+            flexDirection: 'column'
           }}>
+            {videoError && (
+              <div style={{ color: '#f33', marginTop: 10, marginBottom: 6, fontWeight: 600, fontSize: '1rem' }}>
+                {videoError}
+              </div>
+            )}
             {videoUrl ? (
-              <video
-                ref={videoRef}
-                src={videoUrl}
-                width="100%"
-                height="100%"
-                style={{ borderRadius: 12, background: '#222', maxWidth: '100%' }}
-                controls={false}
-                onTimeUpdate={handleVideoTimeUpdate}
-                onPlay={() => setIsPlaying(true)}
-                onPause={() => setIsPlaying(false)}
-              >
-                Sorry, your browser does not support embedded videos.
-              </video>
+              // Render either a native video element or an iframe for YouTube, based on URL
+              isYouTubeUrl(videoUrl) ? (
+                <iframe
+                  title="YouTube Player"
+                  width="100%"
+                  height="100%"
+                  src={getYouTubeEmbedUrl(videoUrl)}
+                  style={{ borderRadius: 12, background: '#222', maxWidth: '100%', minHeight: 318, border: 'none' }}
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                ></iframe>
+              ) : isDirectVideoUrl(videoUrl) ? (
+                <video
+                  ref={videoRef}
+                  src={videoUrl}
+                  width="100%"
+                  height="100%"
+                  style={{ borderRadius: 12, background: '#222', maxWidth: '100%' }}
+                  controls={false}
+                  onTimeUpdate={handleVideoTimeUpdate}
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+                  onError={() => setVideoError('Could not load video. Check your link or format.')}
+                >
+                  Sorry, your browser does not support embedded videos.
+                </video>
+              ) : (
+                <span style={{ color: '#f33', fontWeight: 500 }}>
+                  Could not recognize this link as a supported video. Please use a public YouTube or direct MP4/WebM URL.
+                </span>
+              )
             ) : (
               <span style={{ color: '#eee', textAlign: 'center', fontWeight: 500 }}>
                 Paste a video URL to watch with your group!
@@ -493,6 +519,36 @@ function formatTime(seconds) {
   const m = Math.floor(seconds / 60).toString().padStart(2, '0');
   const s = (seconds % 60).toString().padStart(2, '0');
   return `${m}:${s}`;
+}
+
+/**
+ * Checks if a URL is a YouTube share/link.
+ */
+function isYouTubeUrl(url) {
+  if (!url) return false;
+  return /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\//i.test(url);
+}
+
+/**
+ * Converts YouTube public URL/watch to embeddable iframe src
+ */
+function getYouTubeEmbedUrl(url) {
+  // Typical: https://www.youtube.com/watch?v=VIDEOID
+  // Or: https://youtu.be/VIDEOID
+  let videoIdMatch = url.match(/[?&]v=([^&#]+)/);
+  if (videoIdMatch) return `https://www.youtube.com/embed/${videoIdMatch[1]}`;
+  // youtu.be short link
+  videoIdMatch = url.match(/youtu\.be\/([^?&#]+)/);
+  if (videoIdMatch) return `https://www.youtube.com/embed/${videoIdMatch[1]}`;
+  return url; // fallback, might still be valid
+}
+
+/**
+ * Checks if URL is a direct link to video (mp4, webm, ogg)
+ */
+function isDirectVideoUrl(url) {
+  if (!url) return false;
+  return /\.(mp4|webm|ogg)(\?.*)?$/i.test(url);
 }
 
 export default SyncStreamMain;

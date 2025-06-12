@@ -34,3 +34,13 @@ cached modules 1.58 MiB [cached] 102 modules
 runtime modules 27.5 KiB 14 modules
 ./src/SyncStreamMain.js 25.7 KiB [built] [code generated]
 webpack 5.99.9 compiled successfully in 252 ms
+assets by status 1.92 KiB [cached] 1 asset
+assets by path *.js 1.83 MiB
+  asset bundle.js 1.83 MiB [emitted] (name: main)
+  asset main.78f279e0a410038b9ce7.hot-update.js 2.33 KiB [emitted] [immutable] [hmr] (name: main)
+asset main.78f279e0a410038b9ce7.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.83 MiB = bundle.js 1.83 MiB main.78f279e0a410038b9ce7.hot-update.js 2.33 KiB
+cached modules 1.6 MiB [cached] 102 modules
+runtime modules 27.5 KiB 14 modules
+./src/supabaseClient.js 818 bytes [built] [code generated]
+webpack 5.99.9 compiled successfully in 54 ms

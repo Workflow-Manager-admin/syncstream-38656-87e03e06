@@ -261,16 +261,23 @@ function SyncStreamMain() {
                   name="roomId"
                   autoComplete="off"
                   aria-label="Room ID"
+                  data-testid="room-id-input"
                 />
                 <button
                   style={buttonStyle(palette.primary, true)}
                   onClick={handleRoomJoin}
                   disabled={!roomId.trim()}
+                  id="join-room-btn"
+                  name="joinRoomButton"
+                  data-testid="join-room-button"
                 >Join Room</button>
                 <span style={{ color: '#aaa'}}>or</span>
                 <button
                   style={buttonStyle(palette.accent)}
                   onClick={handleRoomCreate}
+                  id="create-room-btn"
+                  name="createRoomButton"
+                  data-testid="create-room-button"
                 >Create Room</button>
               </>
             ) : (
@@ -313,15 +320,19 @@ function SyncStreamMain() {
                 value={inputUrl}
                 onChange={e => setInputUrl(e.target.value)}
                 maxLength={1000}
-                id="video-url"
+                id="video-url-input"
                 name="videoUrl"
                 autoComplete="url"
                 aria-label="Video URL"
+                data-testid="video-url-input"
               />
               <button
                 style={buttonStyle(palette.accent, false, 'small')}
                 onClick={handleUrlSet}
                 disabled={!inputUrl.trim()}
+                id="set-video-btn"
+                name="setVideoButton"
+                data-testid="set-video-button"
               >Set Video</button>
             </div>
           )}
@@ -533,6 +544,9 @@ function GroupChatPanel({ messages, chatInput, setChatInput, handleChatSend }) {
         style={{ display: 'flex', gap: 6 }}
         onSubmit={handleChatSend}
         autoComplete="off"
+        id="chat-form"
+        name="chatForm"
+        data-testid="chat-form"
       >
         <input
           style={{
@@ -544,12 +558,14 @@ function GroupChatPanel({ messages, chatInput, setChatInput, handleChatSend }) {
             outline: 'none'
           }}
           name="chatInput"
+          id="chat-input"
           autoComplete="off"
           type="text"
           value={chatInput}
           placeholder="Type a message…"
           onChange={e => setChatInput(e.target.value)}
           maxLength={220}
+          data-testid="chat-input"
         />
         <button
           type="submit"
@@ -566,6 +582,9 @@ function GroupChatPanel({ messages, chatInput, setChatInput, handleChatSend }) {
           }}
           disabled={!chatInput.trim()}
           aria-label="Send"
+          id="send-chat-btn"
+          name="sendChatButton"
+          data-testid="send-chat-button"
         >
           Send
         </button>

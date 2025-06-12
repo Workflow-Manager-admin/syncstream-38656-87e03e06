@@ -9,4 +9,6 @@ root.render(
     <App />
   </React.StrictMode>
 );
+/*
 // Note: No usage of PUBLIC_URL here, this entry looks correct.
+*/

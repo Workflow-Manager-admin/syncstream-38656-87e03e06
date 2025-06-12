@@ -12,8 +12,8 @@ asset index.html 1.92 KiB [emitted]
 runtime modules 27.5 KiB 14 modules
 orphan modules 409 bytes [orphan] 3 modules
 modules by path ./node_modules/ 1.56 MiB 87 modules
-modules by path ./src/ 35.6 KiB
-  modules by path ./src/*.js 28.1 KiB 4 modules
+modules by path ./src/ 35.2 KiB
+  modules by path ./src/*.js 27.7 KiB 4 modules
   modules by path ./src/*.css 7.49 KiB
     ./src/index.css 2.23 KiB [built] [code generated]
     + 3 modules
@@ -23,24 +23,163 @@ modules by path ./.ve/ 15.1 KiB
     ./.ve/EditorOverlay.css 2.25 KiB [built] [code generated]
     ./node_modules/css-loader/dist/cjs.js!./.ve/EditorOverlay.css 697 bytes [built] [code generated]
   ./.ve/EditorOverlay.jsx 1.58 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 2036 ms
-assets by status 1.92 KiB [cached] 1 asset
-assets by path *.js 1.86 MiB
-  asset bundle.js 1.83 MiB [emitted] (name: main)
-  asset main.7c03648f0674e2dcb1e8.hot-update.js 31.8 KiB [emitted] [immutable] [hmr] (name: main)
-asset main.7c03648f0674e2dcb1e8.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.86 MiB = bundle.js 1.83 MiB main.7c03648f0674e2dcb1e8.hot-update.js 31.8 KiB
-cached modules 1.58 MiB [cached] 102 modules
-runtime modules 27.5 KiB 14 modules
-./src/SyncStreamMain.js 25.7 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 252 ms
+webpack 5.99.9 compiled successfully in 1669 ms
 assets by status 1.92 KiB [cached] 1 asset
 assets by path *.js 1.83 MiB
   asset bundle.js 1.83 MiB [emitted] (name: main)
-  asset main.78f279e0a410038b9ce7.hot-update.js 2.33 KiB [emitted] [immutable] [hmr] (name: main)
-asset main.78f279e0a410038b9ce7.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.83 MiB = bundle.js 1.83 MiB main.78f279e0a410038b9ce7.hot-update.js 2.33 KiB
+  asset main.3befddd74324a355b471.hot-update.js 854 bytes [emitted] [immutable] [hmr] (name: main)
+asset main.3befddd74324a355b471.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.83 MiB = bundle.js 1.83 MiB main.3befddd74324a355b471.hot-update.js 854 bytes
+cached modules 1.6 MiB [cached] 102 modules
+runtime modules 27.5 KiB 14 modules
+./src/supabaseClient.js 818 bytes [built]
+webpack 5.99.9 compiled successfully in 133 ms
+assets by status 1.92 KiB [cached] 1 asset
+assets by path *.js 1.83 MiB
+  asset bundle.js 1.83 MiB [emitted] (name: main)
+  asset main.74756ca50ae582531b6c.hot-update.js 2.43 KiB [emitted] [immutable] [hmr] (name: main)
+asset main.74756ca50ae582531b6c.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.83 MiB = bundle.js 1.83 MiB main.74756ca50ae582531b6c.hot-update.js 2.43 KiB
+cached modules 1.6 MiB [cached] 102 modules
+runtime modules 27.5 KiB 14 modules
+./src/supabaseClient.js 911 bytes [built] [code generated]
+webpack 5.99.9 compiled successfully in 51 ms
+assets by status 1.92 KiB [cached] 1 asset
+assets by path *.js 1.83 MiB
+  asset bundle.js 1.83 MiB [emitted] (name: main)
+  asset main.dc6b81c2251ec3dabc78.hot-update.js 2.33 KiB [emitted] [immutable] [hmr] (name: main)
+asset main.dc6b81c2251ec3dabc78.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.83 MiB = bundle.js 1.83 MiB main.dc6b81c2251ec3dabc78.hot-update.js 2.33 KiB
 cached modules 1.6 MiB [cached] 102 modules
 runtime modules 27.5 KiB 14 modules
 ./src/supabaseClient.js 818 bytes [built] [code generated]
-webpack 5.99.9 compiled successfully in 54 ms
+webpack 5.99.9 compiled successfully in 50 ms
+assets by status 1.92 KiB [cached] 1 asset
+assets by path *.js 1.83 MiB
+  asset bundle.js 1.83 MiB [emitted] (name: main)
+  asset main.c368c09315d45bde60f4.hot-update.js 2.43 KiB [emitted] [immutable] [hmr] (name: main)
+asset main.c368c09315d45bde60f4.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.83 MiB = bundle.js 1.83 MiB main.c368c09315d45bde60f4.hot-update.js 2.43 KiB
+cached modules 1.6 MiB [cached] 102 modules
+runtime modules 27.5 KiB 14 modules
+./src/supabaseClient.js 911 bytes [built] [code generated]
+webpack 5.99.9 compiled successfully in 45 ms
+assets by status 1.92 KiB [cached] 1 asset
+assets by path *.js 1.46 MiB
+  asset bundle.js 1.43 MiB [emitted] (name: main)
+  asset main.cac2558854a5468ce350.hot-update.js 38.1 KiB [emitted] [immutable] [hmr] (name: main)
+asset main.cac2558854a5468ce350.hot-update.json 3.61 KiB [emitted] [immutable] [hmr]
+Entrypoint main 1.46 MiB = bundle.js 1.43 MiB main.cac2558854a5468ce350.hot-update.js 38.1 KiB
+cached modules 1.26 MiB [cached] 42 modules
+runtime modules 27.5 KiB 14 modules
+javascript modules 25.7 KiB
+  ./src/SyncStreamMain.js 25.7 KiB [code generated]
+  ./src/supabaseClient.js 39 bytes [built] [code generated] [1 error]
+
+ERROR in ./src/supabaseClient.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/src/supabaseClient.js: Unexpected token (16:21)
+
+  14 |  * For this template, if you haven't set up environment variables, just paste your credentials below:
+  15 |  */
+> 16 | const SUPABASE_URL = ;
+     |                      ^
+  17 | const SUPABASE_ANON_KEY = process.env.REACT_APP_SUPABASE_ANON_KEY;
+  18 |
+  19 |
+    at constructor (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:363:19)
+    at JSXParserMixin.raise (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:6609:19)
+    at JSXParserMixin.unexpected (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:6629:16)
+    at JSXParserMixin.parseExprAtom (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:11378:16)
+    at JSXParserMixin.parseExprAtom (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:4776:20)
+    at JSXParserMixin.parseExprSubscripts (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:11012:23)
+    at JSXParserMixin.parseUpdate (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:10997:21)
+    at JSXParserMixin.parseMaybeUnary (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:10977:23)
+    at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:10830:61)
+    at JSXParserMixin.parseExprOps (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:10835:23)
+    at JSXParserMixin.parseMaybeConditional (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:10812:23)
+    at JSXParserMixin.parseMaybeAssign (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:10765:21)
+    at /home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:10734:39
+    at JSXParserMixin.allowInAnd (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:12356:16)
+    at JSXParserMixin.parseMaybeAssignAllowIn (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:10734:17)
+    at JSXParserMixin.parseVar (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:13303:91)
+    at JSXParserMixin.parseVarStatement (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:13149:10)
+    at JSXParserMixin.parseStatementContent (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:12770:23)
+    at JSXParserMixin.parseStatementLike (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:12685:17)
+    at JSXParserMixin.parseModuleItem (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:12662:17)
+    at JSXParserMixin.parseBlockOrModuleBlockBody (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:13235:36)
+    at JSXParserMixin.parseBlockBody (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:13228:10)
+    at JSXParserMixin.parseProgram (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:12541:10)
+    at JSXParserMixin.parseTopLevel (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:12531:25)
+    at JSXParserMixin.parse (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:14410:10)
+    at parse (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/parser/lib/index.js:14444:38)
+    at parser (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+    at parser.next (<anonymous>)
+    at normalizeFile (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+    at normalizeFile.next (<anonymous>)
+    at run (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+    at run.next (<anonymous>)
+    at transform (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/@babel/core/lib/transform.js:22:33)
+    at transform.next (<anonymous>)
+    at step (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/gensync/index.js:261:32)
+    at /home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/gensync/index.js:273:13
+    at async.call.result.err.err (/home/kavia/workspace/code-generation/syncstream-38656-87e03e06/syncstream_frontend/node_modules/gensync/index.js:223:11)
+ @ ./src/SyncStreamMain.js 2:0-44 49:16-29 74:16-29 99:20-36 138:14-27
+ @ ./src/App.js 3:0-46 15:32-46
+ @ ./src/index.js 5:0-24 11:32-35
+
+webpack 5.99.9 compiled with 1 error in 40 ms
+assets by status 1.92 KiB [cached] 1 asset
+assets by path *.js 2.26 MiB
+  asset bundle.js 1.83 MiB [emitted] (name: main)
+  asset main.4d6894cc154dbd16fbab.hot-update.js 448 KiB [emitted] [immutable] [hmr] (name: main)
+asset main.4d6894cc154dbd16fbab.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 2.26 MiB = bundle.js 1.83 MiB main.4d6894cc154dbd16fbab.hot-update.js 448 KiB
+cached modules 1.58 MiB [cached] 101 modules
+runtime modules 27.5 KiB 14 modules
+javascript modules 26.6 KiB
+  ./src/SyncStreamMain.js 25.7 KiB [code generated]
+  ./src/supabaseClient.js 919 bytes [built] [code generated]
+webpack 5.99.9 compiled successfully in 47 ms
+assets by status 1.92 KiB [cached] 1 asset
+assets by path *.js 1.83 MiB
+  asset bundle.js 1.83 MiB [emitted] (name: main)
+  asset main.8c152440d429bf660e9d.hot-update.js 2.4 KiB [emitted] [immutable] [hmr] (name: main)
+asset main.8c152440d429bf660e9d.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.83 MiB = bundle.js 1.83 MiB main.8c152440d429bf660e9d.hot-update.js 2.4 KiB
+cached modules 1.6 MiB [cached] 102 modules
+runtime modules 27.5 KiB 14 modules
+./src/supabaseClient.js 882 bytes [built] [code generated]
+webpack 5.99.9 compiled successfully in 41 ms
+assets by status 1.92 KiB [cached] 1 asset
+assets by path *.js 1.83 MiB
+  asset bundle.js 1.83 MiB [emitted] (name: main)
+  asset main.508a8f5ca25dc595dbac.hot-update.js 2.61 KiB [emitted] [immutable] [hmr] (name: main)
+asset main.508a8f5ca25dc595dbac.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.83 MiB = bundle.js 1.83 MiB main.508a8f5ca25dc595dbac.hot-update.js 2.61 KiB
+cached modules 1.6 MiB [cached] 102 modules
+runtime modules 27.5 KiB 14 modules
+./src/supabaseClient.js 1.06 KiB [built] [code generated]
+webpack 5.99.9 compiled successfully in 47 ms
+assets by status 1.92 KiB [cached] 1 asset
+assets by path *.js 1.83 MiB
+  asset bundle.js 1.83 MiB [emitted] (name: main)
+  asset main.9a9bc748c8ec52c8bb38.hot-update.js 2.51 KiB [emitted] [immutable] [hmr] (name: main)
+asset main.9a9bc748c8ec52c8bb38.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.83 MiB = bundle.js 1.83 MiB main.9a9bc748c8ec52c8bb38.hot-update.js 2.51 KiB
+cached modules 1.6 MiB [cached] 102 modules
+runtime modules 27.5 KiB 14 modules
+./src/supabaseClient.js 997 bytes [built] [code generated]
+webpack 5.99.9 compiled successfully in 46 ms
+assets by status 1.92 KiB [cached] 1 asset
+assets by path *.js 1.83 MiB
+  asset bundle.js 1.83 MiB [emitted] (name: main)
+  asset main.ef99fa65b5415b795c7e.hot-update.js 3.64 KiB [emitted] [immutable] [hmr] (name: main)
+asset main.ef99fa65b5415b795c7e.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.83 MiB = bundle.js 1.83 MiB main.ef99fa65b5415b795c7e.hot-update.js 3.64 KiB
+cached modules 1.58 MiB [cached] 101 modules
+runtime modules 27.5 KiB 14 modules
+javascript modules 27.7 KiB
+  ./src/SyncStreamMain.js 25.7 KiB [code generated]
+  ./src/supabaseClient.js 2 KiB [built] [code generated]
+webpack 5.99.9 compiled successfully in 118 ms

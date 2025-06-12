@@ -249,7 +249,14 @@ function SyncStreamMain() {
             flexWrap: 'wrap'
           }}>
             {!hasJoined ? (
-              <>
+              <form
+                id="syncstream-room-entry-form"
+                name="syncstream-room-entry-form"
+                autoComplete="on"
+                style={{ display: 'flex', gap: 16, alignItems: 'center', margin: 0, padding: 0, flexWrap: 'wrap', width: '100%' }}
+                onSubmit={e => { e.preventDefault(); handleRoomJoin(); }}
+                data-testid="room-entry-form"
+              >
                 <input
                   style={inputBoxStyle}
                   type="text"
@@ -271,7 +278,7 @@ function SyncStreamMain() {
                   id="syncstream-join-room-btn"
                   name="syncstream-join-room-btn"
                   data-testid="join-room-button"
-                  type="button"
+                  type="submit"
                   aria-label="Join Room"
                 >Join Room</button>
                 <span style={{ color: '#aaa'}}>or</span>
@@ -284,7 +291,7 @@ function SyncStreamMain() {
                   type="button"
                   aria-label="Create Room"
                 >Create Room</button>
-              </>
+              </form>
             ) : (
               <>
                 <span style={{ fontWeight: 500, letterSpacing: '1.2px', color: palette.secondary }}>

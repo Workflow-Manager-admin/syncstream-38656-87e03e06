@@ -257,8 +257,8 @@ function SyncStreamMain() {
                   value={roomId}
                   onChange={e => setRoomId(e.target.value.replace(/\s/g,''))}
                   maxLength={12}
-                  id="room-id"
-                  name="room-id"
+                  id="syncstream-room-id-input"
+                  name="syncstream-room-id"
                   autoComplete="off"
                   aria-label="Room ID"
                   data-testid="room-id-input"
@@ -267,16 +267,16 @@ function SyncStreamMain() {
                   style={buttonStyle(palette.primary, true)}
                   onClick={handleRoomJoin}
                   disabled={!roomId.trim()}
-                  id="join-room-btn"
-                  name="join-room-btn"
+                  id="syncstream-join-room-btn"
+                  name="syncstream-join-room-btn"
                   data-testid="join-room-button"
                 >Join Room</button>
                 <span style={{ color: '#aaa'}}>or</span>
                 <button
                   style={buttonStyle(palette.accent)}
                   onClick={handleRoomCreate}
-                  id="create-room-btn"
-                  name="create-room-btn"
+                  id="syncstream-create-room-btn"
+                  name="syncstream-create-room-btn"
                   data-testid="create-room-button"
                 >Create Room</button>
               </>
@@ -320,8 +320,8 @@ function SyncStreamMain() {
                 value={inputUrl}
                 onChange={e => setInputUrl(e.target.value)}
                 maxLength={1000}
-                id="video-url-input"
-                name="video-url"
+                id="syncstream-video-url-input"
+                name="syncstream-video-url"
                 autoComplete="url"
                 aria-label="Video URL"
                 data-testid="video-url-input"
@@ -330,8 +330,8 @@ function SyncStreamMain() {
                 style={buttonStyle(palette.accent, false, 'small')}
                 onClick={handleUrlSet}
                 disabled={!inputUrl.trim()}
-                id="set-video-btn"
-                name="set-video-btn"
+                id="syncstream-set-video-btn"
+                name="syncstream-set-video-btn"
                 data-testid="set-video-button"
               >Set Video</button>
             </div>

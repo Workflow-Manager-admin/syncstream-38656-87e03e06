@@ -74,7 +74,6 @@ function SyncStreamApp() {
                 ref={videoRef}
                 className="ss-video-player"
                 controls
-                // Use a fully remote image (no PUBLIC_URL involved)
                 poster="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=1200&q=80"
                 style={{ width: "100%", borderRadius: "16px" }}
               >

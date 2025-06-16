@@ -1,68 +1,62 @@
 import React, { useState } from "react";
 import "./LoginPage.css";
 
-/**
+/*
  * PUBLIC_INTERFACE
- * Login page component for SyncStream.
- * Features responsive design, palette-based colors, clean layout, and branding.
+ * LoginPage: SyncStream branded login UI, closely matched to design reference.
+ * Responsive, high-fidelity. Plug in auth via onLogin(username, password).
  */
 function LoginPage({ onLogin }) {
-  const [form, setForm] = useState({ username: "", password: "" });
-  const [error, setError] = useState("");
+  const [form, setForm] = useState({ username: '', password: '' });
+  const [error, setError] = useState('');
 
   // PUBLIC_INTERFACE
-  // Handles input changes
-  const handleChange = (e) => {
-    setForm((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-    setError("");
+  // Called on field change
+  const handleChange = e => {
+    setForm(f => ({ ...f, [e.target.name]: e.target.value }));
+    setError('');
   };
 
   // PUBLIC_INTERFACE
-  // Handles form submission
-  const handleSubmit = (e) => {
+  // Called on submit; forwards data to onLogin
+  const handleSubmit = e => {
     e.preventDefault();
-    // Placeholder validation logic
     if (!form.username.trim() || !form.password.trim()) {
       setError("Please enter both username and password.");
       return;
     }
     if (onLogin) onLogin(form.username, form.password);
-    // Else do nothing (integration point for auth)
   };
 
   return (
-    <div className="ss-login-bg">
-      <div className="ss-login-container">
-        <div className="ss-login-branding">
-          <span className="ss-login-logo-symbol">&#9654;</span>
-          <span className="ss-login-title">SyncStream</span>
+    <div className="ss-login__bg">
+      <div className="ss-login__box">
+        <div className="ss-login__branding" tabIndex={-1}>
+          <span className="ss-login__logo-symbol">&#9654;</span>
+          <span className="ss-login__brand-title">SyncStream</span>
         </div>
-        <form className="ss-login-form" onSubmit={handleSubmit} autoComplete="off">
-          <label htmlFor="username" className="ss-login-label">
+        <form className="ss-login__form" onSubmit={handleSubmit} autoComplete="off">
+          <label htmlFor="ss-login-username" className="ss-login__label">
             Username or Email
           </label>
           <input
-            id="username"
+            id="ss-login-username"
             name="username"
-            className="ss-login-input"
+            className="ss-login__input"
             type="text"
-            autoComplete="username"
             placeholder="Enter your username or email"
+            autoComplete="username"
             value={form.username}
             onChange={handleChange}
             required
           />
-
-          <label htmlFor="password" className="ss-login-label">
+          <label htmlFor="ss-login-password" className="ss-login__label">
             Password
           </label>
           <input
-            id="password"
+            id="ss-login-password"
             name="password"
-            className="ss-login-input"
+            className="ss-login__input"
             type="password"
             autoComplete="current-password"
             placeholder="Enter your password"
@@ -70,8 +64,12 @@ function LoginPage({ onLogin }) {
             onChange={handleChange}
             required
           />
-          {error && <div className="ss-login-error">{error}</div>}
-          <button type="submit" className="ss-login-btn">
+          {error && (
+            <div className="ss-login__error" aria-live="polite">
+              {error}
+            </div>
+          )}
+          <button className="ss-login__button" type="submit">
             Log In
           </button>
         </form>
